@@ -1,0 +1,9 @@
+<div class="row">
+	<div class="col-md-12 competition-select">
+		<label>Please chose a competition:</label>
+		<select name="competitions" class=" form-control" [(ngModel)]="competitionId" (change)="selectCompetition()">
+			<option value=""> -- select competition -- </option>
+			<option *ngFor="let item of competitions" [value]="item.id">{{item.caption}}</option>
+		</select>
+	</div>
+</div>

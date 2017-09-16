@@ -1,0 +1,15 @@
+.table.players {
+	display:block;
+	max-height: 70vh;
+	overflow: auto;
+}
+
+.logo {
+	width: 100%;
+}
+
+a {
+	margin-top: 10px;
+	display: block;
+}
+.head{margin-top: 10px; margin-bottom: 30px;}

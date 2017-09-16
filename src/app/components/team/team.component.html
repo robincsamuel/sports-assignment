@@ -1,0 +1,49 @@
+<div class="row head" >
+	<div class="col-md-1"><a (click)="goBack()" href="#" >Back</a></div>
+	
+	<div *ngIf="team" class="col-md-1">
+		<img class="logo" src="{{team.crestUrl}}"/>
+	</div>
+	<div *ngIf="team" class="col-md-10">
+		<h1>{{team.name}}</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-6"><h3>Players</h3></div>
+	<div class="col-md-6"><h3>Fixtures</h3></div>
+</div>
+<div class="row">
+	<div class="col-md-6">
+		<div *ngIf="players.length > 0">
+			<table class="players table table-striped">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Nationality</th>
+						<th>Position</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let player of players">
+						<td>{{player.name}}</td>
+						<td>{{player.nationality}}</td>
+						<td>{{player.position}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div *ngIf="fixtures.length > 0">
+			<table class="table table-striped">
+				
+				<tbody>
+					<tr *ngFor="let match of fixtures">
+						<td>{{match.awayTeamName}}</td>
+						<td><app-countdown [date]=match.date></app-countdown></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

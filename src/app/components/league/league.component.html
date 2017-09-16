@@ -1,0 +1,33 @@
+<app-home [competitionId]=id ></app-home>
+<div *ngIf="standing.length > 0">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Position</th>
+				<th>Club</th>
+				<th>Played</th>
+				<th>Won</th>
+				<th>Drawn</th>
+				<th>Lost</th>
+				<th>GF</th>
+				<th>GA</th>
+				<th>GD</th>
+				<th>Points</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let team of standing">
+				<td>{{team.position}}</td>
+				<td><a routerLink="/team/{{team._links.team.href | teamId}}" routerLinkActive="active"><img src="{{team.crestURI}}" style="width:20px;" > {{team.teamName}}</a></td>
+				<td>{{team.playedGames}}</td>
+				<td>{{team.wins}}</td>
+				<td>{{team.draws}}</td>
+				<td>{{team.losses}}</td>
+				<td>{{team.goals}}</td>
+				<td>{{team.goalsAgainst}}</td>
+				<td>{{team.goalDifference}}</td>
+				<td>{{team.points}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
