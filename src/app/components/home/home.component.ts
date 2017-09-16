@@ -11,7 +11,7 @@ import { CompetitionService } from '../../services/competition.service';
 export class HomeComponent implements OnInit {
 	competitions = [];
 	@Input() competitionId: number;
-
+	
   constructor(private competitionService: CompetitionService, private router:Router) { }
 
   ngOnInit() {

@@ -17,6 +17,7 @@ import { HomeComponent } from './components/home/home.component';
 import { TeamComponent } from './components/team/team.component';
 import { LeagueComponent } from './components/league/league.component';
 import { CountdownComponent } from './components/countdown/countdown.component';
+import { KeysPipe } from './pipes/keys.pipe';
 
 const routes: Routes = [
 	{ path: '',				component: HomeComponent },
@@ -31,7 +32,8 @@ const routes: Routes = [
     TeamComponent,
     TeamIdPipe,
     LeagueComponent,
-    CountdownComponent
+    CountdownComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,

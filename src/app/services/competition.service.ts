@@ -21,7 +21,7 @@ export class CompetitionService {
   getLeagueTable(id): Promise<any> {
   	return this.http.get(`${this.apiUrl}/${id}/leagueTable`, {headers: this.headers})
                .toPromise()
-               .then(response => response.json().standing)
+               .then(response => response.json().standing || response.json().standings)
                .catch(this.handleError);
   }
 

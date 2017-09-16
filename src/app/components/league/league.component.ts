@@ -12,6 +12,7 @@ export class LeagueComponent implements OnInit,OnDestroy {
 	id: number;
   private sub: any;
 	standing = [];
+	error:any;
 
   constructor(
   	private route:ActivatedRoute,
@@ -22,12 +23,23 @@ export class LeagueComponent implements OnInit,OnDestroy {
   	this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; 
 	  	this.competitionService.getLeagueTable(this.id)
-	  		.then((standing) => this.standing = standing);
+	  		.then((standing) => {
+	  			console.log(standing)
+	  			this.standing = standing
+	  			this.error = false
+	  		})
+	  		.catch(error => {
+	  			this.standing = [];
+	  			this.error = "No league table available."
+	  		})
 	  })
   }
 
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
+
+  isObject(val) { return !(val instanceof Array); }
+
 
 }
